@@ -1,0 +1,289 @@
+<!DOCTYPE html>
+
+<html lang="en">
+
+<head>
+
+    <meta charset="UTF-8">
+
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>Dhruv's Host Blog</title>
+
+    <style>
+
+        /* Basic Reset and Variables */
+
+        :root {
+
+            --primary-color: #2563eb;
+
+            --secondary-color: #1e293b;
+
+            --bg-color: #f8fafc;
+
+            --text-color: #334155;
+
+            --card-bg: #ffffff;
+
+        }
+
+
+
+        * {
+
+            margin: 0;
+
+            padding: 0;
+
+            box-sizing: border-box;
+
+            font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
+
+        }
+
+
+
+        body {
+
+            background-color: var(--bg-color);
+
+            color: var(--text-color);
+
+            line-height: 1.6;
+
+        }
+
+
+
+        /* Header Styling */
+
+        header {
+
+            background-color: var(--secondary-color);
+
+            color: white;
+
+            padding: 2rem 1rem;
+
+            text-align: center;
+
+        }
+
+
+
+        header h1 {
+
+            font-size: 2.5rem;
+
+            margin-bottom: 0.5rem;
+
+        }
+
+
+
+        header p {
+
+            color: #94a3b8;
+
+        }
+
+
+
+        /* Main Container */
+
+        .container {
+
+            max-width: 800px;
+
+            margin: 2rem auto;
+
+            padding: 0 1rem;
+
+        }
+
+
+
+        /* Blog Post Card Styling */
+
+        .blog-card {
+
+            background: var(--card-bg);
+
+            border-radius: 8px;
+
+            box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1);
+
+            padding: 2rem;
+
+            margin-bottom: 2rem;
+
+            transition: transform 0.2s ease;
+
+        }
+
+
+
+        .blog-card:hover {
+
+            transform: translateY(-2px);
+
+        }
+
+
+
+        .post-meta {
+
+            font-size: 0.875rem;
+
+            color: #64748b;
+
+            margin-bottom: 0.5rem;
+
+            display: flex;
+
+            justify-content: space-between;
+
+        }
+
+
+
+        .blog-card h2 {
+
+            font-size: 1.75rem;
+
+            margin-bottom: 1rem;
+
+            color: var(--secondary-color);
+
+        }
+
+
+
+        .blog-card h2 a {
+
+            text-decoration: none;
+
+            color: inherit;
+
+        }
+
+
+
+        .blog-card p.excerpt {
+
+            margin-bottom: 1.5rem;
+
+        }
+
+
+
+        .read-more-btn {
+
+            display: inline-block;
+
+            background-color: var(--primary-color);
+
+            color: white;
+
+            padding: 0.5rem 1rem;
+
+            border-radius: 4px;
+
+            text-decoration: none;
+
+            font-weight: 500;
+
+            transition: background-color 0.2s;
+
+        }
+
+
+
+        .read-more-btn:hover {
+
+            background-color: #1d4ed8;
+
+        }
+
+
+
+        /* Footer */
+
+        footer {
+
+            text-align: center;
+
+            padding: 2rem;
+
+            color: #64748b;
+
+            font-size: 0.9rem;
+
+            border-top: 1px solid #e2e8f0;
+
+            margin-top: 4rem;
+
+        }
+
+    </style>
+
+</head>
+
+<body>
+
+
+
+    <header>
+
+        <h1>Dhruv's Host Blog</h1>
+
+        <p>Insights on web development, hosting, and digital freedom.</p>
+
+    </header>
+
+
+
+    <main class="container">
+
+        
+
+        <article class="blog-card">
+
+            <div class="post-meta">
+
+                <span>December 12, 2025</span>
+
+                <span>Web Dev</span>
+
+            </div>
+
+            <h2><a href="/blog/why-we-are-better.html">Why Custom Websites Are Better Than Carrd</a></h2>
+
+            <p class="excerpt">
+
+                While drag-and-drop builders like Carrd are convenient, they lock you into a limited ecosystem. Discover why owning your code gives you superior performance, SEO control, and zero monthly fees.
+
+            </p>
+
+            <a href="/blog/why-we-are-better.html" class="read-more-btn">Read Article &rarr;</a>
+
+        </article>
+
+
+
+    </main>
+
+
+
+    <footer>
+
+        <p>&copy; 2025 Dhruv's Host. All rights reserved.</p>
+
+    </footer>
+
+
+
+</body>
+
+</html>
