@@ -1,0 +1,376 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Cost of React & Node.js Development in India | Dhruv's Host Blog</title>
+    
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700;800&display=swap" rel="stylesheet">
+
+    <style>
+        /* --- CORE THEME (From your request) --- */
+        :root {
+            --primary: #4f46e5; /* vibrant purple */
+            --secondary: #111827; /* very dark */
+            --accent: #22c55e; /* bright green */
+            --bg: #f9fafb; /* almost white */
+            --carrd-color: #ef4444; 
+            --text: #374151;
+            --shadow: rgba(100, 100, 111, 0.15);
+            --bar-gradient-1: linear-gradient(90deg, #6366f1 0%, #a855f7 100%);
+            --bar-gradient-2: linear-gradient(90deg, #3b82f6 0%, #06b6d4 100%);
+            --bar-gradient-3: linear-gradient(90deg, #f59e0b 0%, #fbbf24 100%);
+            --bar-gradient-4: linear-gradient(90deg, #10b981 0%, #34d399 100%);
+        }
+
+        body {
+            font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+            background: var(--bg);
+            color: var(--text);
+            margin: 0;
+            padding: 0;
+            line-height: 1.7;
+            font-size: 16px;
+        }
+
+        header {
+            background: var(--secondary);
+            color: white;
+            padding: 4rem 1rem;
+            text-align: center;
+            box-shadow: 0 4px 20px var(--shadow);
+            border-bottom-left-radius: 20px;
+            border-bottom-right-radius: 20px;
+        }
+
+        h1 {
+            margin: 0;
+            font-size: 2.5rem; /* Adjusted for mobile safety */
+            letter-spacing: -1px;
+            font-weight: 800;
+            text-transform: uppercase;
+            text-shadow: 0 2px 4px rgba(0,0,0,0.2);
+            line-height: 1.1;
+        }
+
+        @media(min-width: 768px) {
+            h1 { font-size: 3.5rem; }
+        }
+
+        .subtitle {
+            color: #9ca3af;
+            font-weight: 400;
+            margin-top: 1rem;
+            font-size: 1.1rem;
+            font-style: italic;
+            letter-spacing: 0.5px;
+        }
+
+        .meta-tag {
+            background: rgba(255,255,255,0.1);
+            padding: 5px 15px;
+            border-radius: 20px;
+            font-size: 0.8rem;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            margin-bottom: 1rem;
+            display: inline-block;
+        }
+
+        .container {
+            max-width: 900px;
+            margin: 0 auto;
+            padding: 0 1.5rem 4rem;
+            transform: translateY(-40px); /* Overlap header slightly */
+        }
+
+        .content-card {
+            background: white;
+            border-radius: 24px;
+            box-shadow: 0 20px 40px var(--shadow);
+            padding: 3rem 2rem;
+            margin-bottom: 3rem;
+        }
+
+        h2 {
+            border-left: 5px solid var(--primary);
+            padding-left: 1rem;
+            font-weight: 800;
+            font-size: 1.8rem;
+            margin-bottom: 1.5rem;
+            margin-top: 2rem;
+            color: var(--secondary);
+            line-height: 1.2;
+        }
+
+        p {
+            margin-bottom: 1.5rem;
+            color: #4b5563;
+        }
+
+        /* --- SLIDESHOW CHART STYLES (New Request) --- */
+        .chart-wrapper {
+            background: #f3f4f6;
+            border-radius: 16px;
+            padding: 2.5rem;
+            margin: 2.5rem 0;
+            border: 1px solid #e5e7eb;
+        }
+
+        .chart-title {
+            text-align: center;
+            font-weight: 700;
+            margin-bottom: 2rem;
+            color: var(--secondary);
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            font-size: 0.9rem;
+        }
+
+        .pricing-bar-container {
+            display: flex;
+            flex-direction: column;
+            gap: 1.5rem;
+        }
+
+        .pricing-item {
+            position: relative;
+        }
+
+        .price-label-row {
+            display: flex;
+            justify-content: space-between;
+            margin-bottom: 0.5rem;
+            font-size: 0.95rem;
+            font-weight: 600;
+            color: var(--secondary);
+        }
+
+        .price-highlight {
+            color: var(--primary);
+            font-weight: 800;
+        }
+
+        .bar-track {
+            height: 12px;
+            background: #e5e7eb;
+            border-radius: 10px;
+            overflow: hidden;
+            position: relative;
+        }
+
+        /* The Slide Animation */
+        @keyframes slideIn {
+            0% { width: 0; opacity: 0; }
+            100% { opacity: 1; }
+        }
+
+        .bar-fill {
+            height: 100%;
+            border-radius: 10px;
+            width: 0%; /* JS or inline style will set final width */
+            animation: slideIn 1.5s cubic-bezier(0.22, 1, 0.36, 1) forwards;
+            box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+        }
+
+        /* Variations */
+        .fill-freelancer { background: var(--bar-gradient-4); width: 15%; animation-delay: 0.2s; }
+        .fill-pro { background: var(--bar-gradient-3); width: 35%; animation-delay: 0.4s; }
+        .fill-agency { background: var(--bar-gradient-2); width: 65%; animation-delay: 0.6s; }
+        .fill-bigtech { background: var(--bar-gradient-1); width: 100%; animation-delay: 0.8s; }
+
+        .price-bubble {
+            position: absolute;
+            right: 0;
+            top: -25px;
+            background: var(--secondary);
+            color: white;
+            padding: 2px 8px;
+            border-radius: 4px;
+            font-size: 0.75rem;
+            font-weight: 700;
+            opacity: 0;
+            animation: fadeIn 0.5s ease forwards;
+        }
+
+        .fill-freelancer + .price-bubble { animation-delay: 1.7s; left: 15%; right: auto; transform: translateX(-50%); }
+        .fill-pro + .price-bubble { animation-delay: 1.9s; left: 35%; right: auto; transform: translateX(-50%); }
+        .fill-agency + .price-bubble { animation-delay: 2.1s; left: 65%; right: auto; transform: translateX(-50%); }
+        .fill-bigtech + .price-bubble { animation-delay: 2.3s; right: 0; }
+
+        @keyframes fadeIn { to { opacity: 1; } }
+
+        /* --- INFO BOXES --- */
+        .info-grid {
+            display: grid;
+            grid-template-columns: 1fr;
+            gap: 1.5rem;
+            margin-top: 3rem;
+        }
+
+        @media(min-width: 768px) {
+            .info-grid { grid-template-columns: 1fr 1fr; }
+        }
+
+        .info-box {
+            background: #f8fafc;
+            border: 1px solid #e2e8f0;
+            border-radius: 12px;
+            padding: 1.5rem;
+            transition: transform 0.2s;
+        }
+
+        .info-box:hover {
+            transform: translateY(-5px);
+            border-color: var(--primary);
+        }
+
+        .info-box h3 {
+            margin-top: 0;
+            color: var(--secondary);
+            font-size: 1.25rem;
+        }
+
+        .btn-wrapper {
+            text-align: center;
+            margin-top: 4rem;
+        }
+
+        .btn {
+            background: var(--accent);
+            color: white;
+            padding: 1rem 2.5rem;
+            text-decoration: none;
+            border-radius: 50px;
+            font-weight: 700;
+            box-shadow: 0 10px 20px rgba(34, 197, 94, 0.3);
+            transition: all 0.3s ease;
+            display: inline-block;
+        }
+
+        .btn:hover {
+            transform: scale(1.05);
+            box-shadow: 0 15px 30px rgba(34, 197, 94, 0.4);
+        }
+        
+        .disclaimer {
+            font-size: 0.8rem;
+            color: #9ca3af;
+            text-align: center;
+            margin-top: 3rem;
+            border-top: 1px solid #e5e7eb;
+            padding-top: 2rem;
+        }
+    </style>
+</head>
+<body>
+
+    <header>
+        <span class="meta-tag">Market Analysis 2026</span>
+        <h1>The Price of Code</h1>
+        <div class="subtitle">Real Cost of React + Node.js Development in India</div>
+    </header>
+
+    <div class="container">
+        
+        <article class="content-card">
+            <p>
+                <strong>Building a custom website in India</strong> is like buying a car. You can buy a second-hand hatchback, a reliable sedan, or a luxury sports car. When it comes to the MERN stack (MongoDB, Express, React, Node.js), pricing isn't arbitrary—it's based on expertise, scalability, and code quality.
+            </p>
+            <p>
+                We analyzed market rates for 2025-2026 to help you understand exactly what you get for your money when hiring different tiers of developers.
+            </p>
+
+            <h2>The Pricing Spectrum</h2>
+            <div class="chart-wrapper">
+                <div class="chart-title">Estimated Cost for a Standard Full-Stack Web App</div>
+                
+                <div class="pricing-bar-container">
+                    
+                    <div class="pricing-item">
+                        <div class="price-label-row">
+                            <span>Junior Freelancer (2 YOE)</span>
+                            <span class="price-highlight">₹25k - ₹45k</span>
+                        </div>
+                        <div class="bar-track">
+                            <div class="bar-fill fill-freelancer"></div>
+                            <div class="price-bubble">Entry Level</div>
+                        </div>
+                    </div>
+
+                    <div class="pricing-item">
+                        <div class="price-label-row">
+                            <span>Senior Freelancer (5+ YOE)</span>
+                            <span class="price-highlight">₹60k - ₹1.5 Lakh</span>
+                        </div>
+                        <div class="bar-track">
+                            <div class="bar-fill fill-pro"></div>
+                            <div class="price-bubble">Best Value</div>
+                        </div>
+                    </div>
+
+                    <div class="pricing-item">
+                        <div class="price-label-row">
+                            <span>Boutique Agency</span>
+                            <span class="price-highlight">₹2 Lakh - ₹5 Lakh</span>
+                        </div>
+                        <div class="bar-track">
+                            <div class="bar-fill fill-agency"></div>
+                            <div class="price-bubble">Full Service</div>
+                        </div>
+                    </div>
+
+                    <div class="pricing-item">
+                        <div class="price-label-row">
+                            <span>Big Tech / Enterprise</span>
+                            <span class="price-highlight">₹8 Lakh - ₹15 Lakh+</span>
+                        </div>
+                        <div class="bar-track">
+                            <div class="bar-fill fill-bigtech"></div>
+                            <div class="price-bubble">Enterprise</div>
+                        </div>
+                    </div>
+
+                </div>
+            </div>
+
+            <h2>What Are You Paying For?</h2>
+            <p>Why is there such a massive gap between the ₹30k freelancer and the ₹5 Lakh agency? It usually comes down to three things: <strong>Security, Scalability, and Speed.</strong></p>
+
+            <div class="info-grid">
+                <div class="info-box">
+                    <h3>The 2-Year Freelancer</h3>
+                    <p>Great for MVPs or personal projects. They will likely use templates and focus on "making it look right." <br><br><strong>Risk:</strong> Backend security might be weak; code might be hard to update later.</p>
+                </div>
+
+                <div class="info-box">
+                    <h3>The Senior Pro</h3>
+                    <p>They understand React Hooks, Node.js memory management, and database indexing. You aren't just paying for code; you're paying for architecture that won't crash when 1,000 users hit it at once.</p>
+                </div>
+
+                <div class="info-box">
+                    <h3>The Agency</h3>
+                    <p>You get a team: A UI designer, a Frontend Dev, a Backend Dev, and a QA tester. The communication is professional, and they offer contracts with support guarantees.</p>
+                </div>
+
+                <div class="info-box">
+                    <h3>Big Tech Firms</h3>
+                    <p>For large-scale enterprise apps requiring ISO certifications, heavy legal contracts, and custom server infrastructure. Overkill for most small businesses.</p>
+                </div>
+            </div>
+
+            <div class="btn-wrapper">
+                <a href="#" class="btn">Get a Quote from Us</a>
+            </div>
+
+            <div class="disclaimer">
+                *Prices are estimates based on standard e-commerce or SaaS features in the Indian domestic market as of Jan 2026.
+            </div>
+
+        </article>
+    </div>
+
+</body>
+</html>
